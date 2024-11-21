@@ -24,7 +24,7 @@ const Page: React.FC = () => {
       }
     };
     getData();
-  }, []);
+  }, [url]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-800 to-gray-900">
