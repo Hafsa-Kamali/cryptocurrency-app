@@ -7,7 +7,7 @@ interface Rates {
 }
 
 async function fetchRates(): Promise<Rates> {
-  const apiKey = "68769c00c9467bf293a395c18c963d89";
+  const apiKey = "abdab83e8051d04ec3a723a1bcaad215";
   const url = `http://api.coinlayer.com/api/live?access_key=${apiKey}`;
  
   try {
