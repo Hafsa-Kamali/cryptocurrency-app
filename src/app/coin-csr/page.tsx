@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface Rates {
   [key: string]: number;
@@ -13,7 +13,7 @@ const Page: React.FC = () => {
   const apiKey = "68769c00c9467bf293a395c18c963d89";
   const url = `http://api.coinlayer.com/api/live?access_key=${apiKey}`;
   const [rate, setRate] = useState<Rates>({});
-  const router = useRouter();
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -42,21 +42,11 @@ const Page: React.FC = () => {
             <span className="text-3xl font-bold text-white">Crypto Genesis.</span>
           </div>
           <ul className="flex space-x-8 text-white">
-            {[
-              { label: "Home", path: "/" },
-              { label: "CSR", path: "/coin-csr" },
-              { label: "SSR", path: "/coin-ssr" },
-              { label: "ISR", path: "/coin-isr" },
-              { label: "SSG", path: "/coin-ssg" },
-            ].map(({ label, path }, index) => (
-              <li
-                key={index}
-                className="cursor-pointer hover:text-blue-500"
-                onClick={() => router.push(path)}
-              >
-                {label}
-              </li>
-            ))}
+          <Link href="/"><li className="cursor-pointer hover:text-blue-500">Home</li></Link>
+            <Link href={"/coin-csr"} ><li className="cursor-pointer hover:text-blue-500">CSR</li></Link>
+            <Link href={"/coin-ssr"}><li className="cursor-pointer hover:text-blue-500">SSR</li> </Link>
+            <Link href={"/coin-isr"}><li className="cursor-pointer hover:text-blue-500">ISR</li></Link>
+            <Link href={"/coin-ssg"}><li className="cursor-pointer hover:text-blue-500">SSG</li></Link>
           </ul>
         </div>
       </nav>
